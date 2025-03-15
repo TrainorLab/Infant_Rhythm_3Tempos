@@ -1,5 +1,4 @@
-# LME for infant 3 tempo, based off code from Jesse
-# ALSO ASK JESSE ABOUT INDIVIDUAL TRIALS VS AVGs
+# LME for infant 3 tempo
 
 library(tidyverse)
 library(emmeans)
@@ -205,7 +204,7 @@ ssep_model <- lmer(SSEP_pow ~ prime_group * mus_class * freq + (1|participant), 
 # itpc_model <- lmer(ITPC ~ prime_group * mus_class * freq + (1|participant), data=data, REML=FALSE)
 
 
-# only look at triple frequency, so no within subject effect now, which makes lme not appropriate:
+# only look at beat frequency, so no within subject effect now, which makes lme not appropriate:
 subset_data <- subset(data, freq=='beat')
 itpc_model <- aov(ITPC ~ prime_group * mus_class, data=subset_data)
 # itpc_model <- aov(ITPC ~ prime_group * mus_parent, data=subset_data)
